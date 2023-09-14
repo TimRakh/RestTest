@@ -1,8 +1,5 @@
-FROM openjdk:11
-EXPOSE 8080
-ADD build/libs/REST-0.0.1-SNAPSHOT.jar myapp.jar
-ADD build/libs/REST-0.0.1-SNAPSHOT-plain.jar.jar myapp.jar
+FROM openjdk:17-oracle
 VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java", "-jar", "-/app.jar"]
+EXPOSE 9999
+ADD /target/RESTDocker-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
